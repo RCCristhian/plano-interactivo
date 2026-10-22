@@ -345,6 +345,39 @@
     }
   }
 
+  // Funciones globales expuestas para móviles y clics directos
+  window.selectCategory = function (catKey) {
+    const catButtons = document.querySelectorAll('.category-btn');
+    catButtons.forEach(b => {
+      if (b.getAttribute('data-category') === catKey) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+    currentCategory = catKey;
+    const searchInput = document.getElementById('searchInput');
+    const searchVal = searchInput ? searchInput.value : '';
+    renderCategory(currentCategory, searchVal);
+
+    // En pantallas móviles, cerramos el cajón suavemente para ver el mapa iluminado
+    if (window.innerWidth <= 768) {
+      setTimeout(() => {
+        document.body.classList.remove('drawer-open');
+      }, 180);
+    }
+  };
+
+  window.toggleMobileDrawer = function () {
+    const sidebarPanel = document.getElementById('sidebarPanel');
+    if (sidebarPanel) sidebarPanel.classList.remove('collapsed');
+    document.body.classList.toggle('drawer-open');
+  };
+
+  window.closeMobileDrawer = function () {
+    document.body.classList.remove('drawer-open');
+  };
+
   // 8. EVENT LISTENERS & CONTROLES
   function setupEventListeners() {
     // Colapsar y expandir panel lateral / Mobile Drawer

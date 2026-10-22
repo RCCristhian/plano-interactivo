@@ -19,8 +19,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Custom Styles with Cache Buster -->
+  <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -59,17 +59,17 @@
   <main id="map-viewport"></main>
 
   <!-- MOBILE BACKDROP -->
-  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop" onclick="window.closeMobileDrawer()"></div>
 
   <!-- FLOATING SIDEBAR PANEL (Drawer en móviles) -->
   <aside class="sidebar-panel" id="sidebarPanel">
-    <div class="mobile-drag-handle" id="mobileDragHandle">
+    <div class="mobile-drag-handle" id="mobileDragHandle" onclick="window.closeMobileDrawer()">
       <span class="drag-bar"></span>
     </div>
     <div class="sidebar-header">
       <div style="display: flex; justify-content: space-between; align-items: flex-start;">
         <span class="project-badge">Miraflores • San Isidro</span>
-        <button class="btn-collapse" id="btnCollapseSidebar" title="Ocultar panel" style="background: none; border: none; cursor: pointer; color: #999; font-size: 16px; padding: 2px;">✕</button>
+        <button class="btn-collapse" id="btnCollapseSidebar" onclick="window.closeMobileDrawer()" title="Cerrar panel" style="background: none; border: none; cursor: pointer; color: #999; font-size: 18px; padding: 4px;">✕</button>
       </div>
       <h1 class="project-title" id="projectTitle">Independencia & Teruel</h1>
       <p class="project-address" id="projectAddress">
@@ -89,7 +89,7 @@
       </div>
 
       <div class="category-list" id="categoryList">
-        <button class="category-btn active" data-category="parques">
+        <button class="category-btn active" data-category="parques" onclick="window.selectCategory('parques')">
           <div class="cat-left">
             <span class="cat-icon">🌳</span>
             <span class="cat-text">Parques</span>
@@ -97,7 +97,7 @@
           <span class="cat-count" id="count-parques">0</span>
         </button>
 
-        <button class="category-btn" data-category="colegios">
+        <button class="category-btn" data-category="colegios" onclick="window.selectCategory('colegios')">
           <div class="cat-left">
             <span class="cat-icon">🎓</span>
             <span class="cat-text">Colegios</span>
@@ -105,7 +105,7 @@
           <span class="cat-count" id="count-colegios">0</span>
         </button>
 
-        <button class="category-btn" data-category="salud">
+        <button class="category-btn" data-category="salud" onclick="window.selectCategory('salud')">
           <div class="cat-left">
             <span class="cat-icon">🏥</span>
             <span class="cat-text">Salud</span>
@@ -113,7 +113,7 @@
           <span class="cat-count" id="count-salud">0</span>
         </button>
 
-        <button class="category-btn" data-category="supermercados">
+        <button class="category-btn" data-category="supermercados" onclick="window.selectCategory('supermercados')">
           <div class="cat-left">
             <span class="cat-icon">🛒</span>
             <span class="cat-text">Supermercados</span>
@@ -121,7 +121,7 @@
           <span class="cat-count" id="count-supermercados">0</span>
         </button>
 
-        <button class="category-btn" data-category="restaurantes">
+        <button class="category-btn" data-category="restaurantes" onclick="window.selectCategory('restaurantes')">
           <div class="cat-left">
             <span class="cat-icon">🍽️</span>
             <span class="cat-text">Restaurantes</span>
@@ -129,7 +129,7 @@
           <span class="cat-count" id="count-restaurantes">0</span>
         </button>
 
-        <button class="category-btn" data-category="cultura">
+        <button class="category-btn" data-category="cultura" onclick="window.selectCategory('cultura')">
           <div class="cat-left">
             <span class="cat-icon">🏛️</span>
             <span class="cat-text">Cultura & Ocio</span>
@@ -137,7 +137,7 @@
           <span class="cat-count" id="count-cultura">0</span>
         </button>
 
-        <button class="category-btn" data-category="todos">
+        <button class="category-btn" data-category="todos" onclick="window.selectCategory('todos')">
           <div class="cat-left">
             <span class="cat-icon">✨</span>
             <span class="cat-text">Ver Todo el Entorno</span>
@@ -215,12 +215,16 @@
   </div>
 
   <!-- BOTÓN FLOTANTE SÁNDWICH (HAMBURGUESA) EN LA ESQUINA -->
-  <button class="mobile-hamburger-btn" id="mobileDrawerTrigger" aria-label="Abrir menú de lugares">
-    <div class="ham-box">
-      <span class="ham-line ham-top"></span>
-      <span class="ham-line ham-mid"></span>
-      <span class="ham-line ham-bot"></span>
-    </div>
+  <button class="mobile-hamburger-btn" id="mobileDrawerTrigger" onclick="window.toggleMobileDrawer()" aria-label="Abrir menú de lugares">
+    <svg class="ham-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+    <svg class="close-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
   </button>
 
   <!-- WALKING TIME LEGEND -->
@@ -244,7 +248,7 @@
   <!-- Data -->
   <script src="poi_data.js"></script>
 
-  <!-- Application Logic -->
-  <script src="app.js"></script>
+  <!-- Application Logic with Cache Buster -->
+  <script src="app.js?v=5"></script>
 </body>
 </html>

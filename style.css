@@ -913,11 +913,62 @@ body {
   background: #333;
 }
 
-/* Mobile Elements (Hidden on Desktop) */
-.mobile-hamburger-btn,
+/* Mobile Elements */
+.mobile-hamburger-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: fixed !important;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+  right: 18px !important;
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45) !important;
+  z-index: 99999 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+
+.mobile-hamburger-btn:active {
+  transform: scale(0.92) !important;
+}
+
+.mobile-hamburger-btn svg {
+  display: block;
+  stroke: #ffffff;
+}
+
+.mobile-hamburger-btn .close-icon-svg {
+  display: none !important;
+}
+
+/* Cuando el menú móvil está abierto, muestra la X */
+body.drawer-open .mobile-hamburger-btn .ham-icon-svg {
+  display: none !important;
+}
+
+body.drawer-open .mobile-hamburger-btn .close-icon-svg {
+  display: block !important;
+}
+
 .mobile-drawer-backdrop,
 .mobile-drag-handle {
   display: none;
+}
+
+/* En Desktop ocultar el botón hamburguesa */
+@media (min-width: 769px) {
+  .mobile-hamburger-btn,
+  .mobile-drawer-backdrop,
+  .mobile-drag-handle {
+    display: none !important;
+  }
 }
 
 /* ==========================================================================
@@ -988,63 +1039,6 @@ body {
 
   .walking-legend {
     display: none;
-  }
-
-  /* Botón Flotante Sándwich (Hamburguesa) en la Esquina en Móvil */
-  .mobile-hamburger-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    bottom: 20px;
-    right: 18px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-    z-index: 1200;
-    cursor: pointer;
-    outline: none;
-    -webkit-tap-highlight-color: transparent;
-    transition: transform 0.2s ease, background 0.2s ease;
-  }
-
-  .mobile-hamburger-btn:active {
-    transform: scale(0.92);
-  }
-
-  .ham-box {
-    width: 20px;
-    height: 14px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .ham-line {
-    display: block;
-    width: 100%;
-    height: 2px;
-    background-color: #ffffff;
-    border-radius: 2px;
-    transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
-  }
-
-  /* Animación a icono X cuando el menú está abierto */
-  body.drawer-open .mobile-hamburger-btn .ham-top {
-    transform: translateY(6px) rotate(45deg);
-  }
-
-  body.drawer-open .mobile-hamburger-btn .ham-mid {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-
-  body.drawer-open .mobile-hamburger-btn .ham-bot {
-    transform: translateY(-6px) rotate(-45deg);
   }
 
   /* Backdrop oscuro cuando el cajón está abierto */
