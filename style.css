@@ -1075,8 +1075,9 @@ body.drawer-open .mobile-hamburger-btn svg {
   }
 
   body.drawer-open .sidebar-panel {
-    transform: translateY(0);
+    transform: translateY(0) !important;
     pointer-events: auto !important;
+    visibility: visible !important;
   }
 
   body.drawer-open .sidebar-panel * {

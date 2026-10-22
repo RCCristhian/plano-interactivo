@@ -368,13 +368,20 @@
     }
   };
 
-  window.toggleMobileDrawer = function () {
+  let lastDrawerToggle = 0;
+  window.toggleMobileDrawer = function (e) {
+    if (e && e.stopPropagation) e.stopPropagation();
+    const now = Date.now();
+    if (now - lastDrawerToggle < 300) return; // evitar doble toggle
+    lastDrawerToggle = now;
+
     const sidebarPanel = document.getElementById('sidebarPanel');
     if (sidebarPanel) sidebarPanel.classList.remove('collapsed');
     document.body.classList.toggle('drawer-open');
   };
 
-  window.closeMobileDrawer = function () {
+  window.closeMobileDrawer = function (e) {
+    if (e && e.stopPropagation) e.stopPropagation();
     document.body.classList.remove('drawer-open');
   };
 
@@ -384,12 +391,12 @@
     const sidebarPanel = document.getElementById('sidebarPanel');
     const btnCollapse = document.getElementById('btnCollapseSidebar');
     const btnToggle = document.getElementById('toggleSidebarBtn');
-    const mobileDrawerTrigger = document.getElementById('mobileDrawerTrigger');
     const mobileDrawerBackdrop = document.getElementById('mobileDrawerBackdrop');
     const mobileDragHandle = document.getElementById('mobileDragHandle');
 
     if (btnCollapse) {
-      btnCollapse.addEventListener('click', () => {
+      btnCollapse.addEventListener('click', (e) => {
+        if (e && e.stopPropagation) e.stopPropagation();
         if (sidebarPanel) sidebarPanel.classList.add('collapsed');
         document.body.classList.remove('drawer-open');
       });
@@ -401,25 +408,16 @@
       });
     }
 
-    if (mobileDrawerTrigger) {
-      mobileDrawerTrigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (sidebarPanel) sidebarPanel.classList.remove('collapsed');
-        document.body.classList.toggle('drawer-open');
-      });
-    }
-
     if (mobileDrawerBackdrop) {
       mobileDrawerBackdrop.addEventListener('click', (e) => {
-        e.preventDefault();
+        if (e && e.stopPropagation) e.stopPropagation();
         document.body.classList.remove('drawer-open');
       });
     }
 
     if (mobileDragHandle) {
       mobileDragHandle.addEventListener('click', (e) => {
-        e.preventDefault();
+        if (e && e.stopPropagation) e.stopPropagation();
         document.body.classList.remove('drawer-open');
       });
     }
