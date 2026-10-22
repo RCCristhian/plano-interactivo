@@ -236,11 +236,6 @@
       activeLabel.textContent = `${itemsToDisplay.length} lugares`;
     }
 
-    const mdtLabel = document.getElementById('mdtLabel');
-    if (mdtLabel) {
-      mdtLabel.textContent = `Ver ${itemsToDisplay.length} lugares`;
-    }
-
     // 5.1 Iluminar Polígonos de Parques o Áreas Arqueológicas
     itemsToDisplay.forEach(item => {
       if (item.polygon && item.polygon.length > 2) {
@@ -374,19 +369,24 @@
     }
 
     if (mobileDrawerTrigger) {
-      mobileDrawerTrigger.addEventListener('click', () => {
+      mobileDrawerTrigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (sidebarPanel) sidebarPanel.classList.remove('collapsed');
         document.body.classList.toggle('drawer-open');
       });
     }
 
     if (mobileDrawerBackdrop) {
-      mobileDrawerBackdrop.addEventListener('click', () => {
+      mobileDrawerBackdrop.addEventListener('click', (e) => {
+        e.preventDefault();
         document.body.classList.remove('drawer-open');
       });
     }
 
     if (mobileDragHandle) {
-      mobileDragHandle.addEventListener('click', () => {
+      mobileDragHandle.addEventListener('click', (e) => {
+        e.preventDefault();
         document.body.classList.remove('drawer-open');
       });
     }
@@ -394,13 +394,21 @@
     // Categorías
     const catButtons = document.querySelectorAll('.category-btn');
     catButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         catButtons.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentCategory = btn.getAttribute('data-category');
         
         const searchVal = document.getElementById('searchInput').value;
         renderCategory(currentCategory, searchVal);
+
+        // En pantallas móviles, cerrar suavemente el cajón para revelar el mapa iluminado
+        if (window.innerWidth <= 768) {
+          setTimeout(() => {
+            document.body.classList.remove('drawer-open');
+          }, 200);
+        }
       });
     });
 
