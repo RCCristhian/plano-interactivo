@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>CC17 | Independencia & Teruel - Plano Interactivo</title>
+  <!-- Favicon CC17 (Vectorial & Alta Resolución) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%20width%3D%2264%22%20height%3D%2264%22%3E%0A%20%20%3Cg%20transform%3D%22translate%283%2C%2020.35%29%20scale%280.271%29%22%20fill%3D%22%23D31317%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M%2063.0%2024.5%20L%2049.5%2024.5%20C%2046.5%2019.5%2C%2041.5%2017.0%2C%2034.5%2017.0%20C%2024.0%2017.0%2C%2017.5%2024.0%2C%2017.5%2034.0%20C%2017.5%2044.0%2C%2024.0%2051.0%2C%2034.5%2051.0%20C%2041.5%2051.0%2C%2046.5%2048.5%2C%2049.5%2043.5%20L%2063.0%2043.5%20C%2059.5%2056.5%2C%2048.0%2065.0%2C%2034.5%2065.0%20C%2016.5%2065.0%2C%203.0%2051.5%2C%203.0%2034.0%20C%203.0%2016.5%2C%2016.5%203.0%2C%2034.5%203.0%20C%2048.0%203.0%2C%2059.5%2011.5%2C%2063.0%2024.5%20Z%22%20/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M%20129.0%2024.5%20L%20115.5%2024.5%20C%20112.5%2019.5%2C%20107.5%2017.0%2C%20100.5%2017.0%20C%2090.0%2017.0%2C%2083.5%2024.0%2C%2083.5%2034.0%20C%2083.5%2044.0%2C%2090.0%2051.0%2C%20100.5%2051.0%20C%20107.5%2051.0%2C%20112.5%2048.5%2C%20115.5%2043.5%20L%20129.0%2043.5%20C%20125.5%2056.5%2C%20114.0%2065.0%2C%20100.5%2065.0%20C%2082.5%2065.0%2C%2069.0%2051.5%2C%2069.0%2034.0%20C%2069.0%2016.5%2C%2082.5%203.0%2C%20100.5%203.0%20C%20114.0%203.0%2C%20125.5%2011.5%2C%20129.0%2024.5%20Z%22%20/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M%20134.0%2039.5%20L%20146.0%2029.5%20L%20146.0%2023.0%20L%20159.5%2023.0%20L%20159.5%2065.0%20L%20146.5%2065.0%20L%20146.5%2042.0%20L%20134.0%2042.0%20Z%22%20/%3E%0A%20%20%20%20%3Cpath%20d%3D%22M%20167.0%2023.0%20L%20209.0%2023.0%20L%20209.0%2033.0%20L%20187.0%2083.0%20L%20173.5%2083.0%20L%20192.5%2033.0%20L%20167.0%2033.0%20Z%22%20/%3E%0A%20%20%3C/g%3E%0A%3C/svg%3E">
+  <link rel="icon" type="image/png" sizes="64x64" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABSElEQVR4nO2UwRWEIBBD7WEP239NFrTbgMIkE2CU5D1v4yd8weNwHMdxnGbOz/d39axmTcldYaZ0i1VSQq8wUlzJmpJoYbWAMhKQwr3SStaUoIVbpRnWcglbC2AL35V+lYDeDMIqKyGzOSVriQDF/WZ5ZQVk5pUyp4Qpkf1PMOuja4aFjhagWp8V0GUrj+DII20BOwtocUsLyLBaXJkA9RcbfZoswAIwtgWgP8A3CQi9s72A0aWVrKyAZaWVrK0EZLjQPFv46p2RXyojACqQKT3yZ1VGQGueua+POwG9eYSXmc3ONUtkSiO8EgKipaMbu5uLXJVyAiKPkvUKARke0jG6bkgAW1otdGsBaD92RiphFqukACWPYbEzktJKVjkBveJKVkYmO5MqrmShvOkCnhhv3gIswAIswAIswAIswAIsYD8BjuOE8wfijNKxEy+jgwAAAABJRU5ErkJggg==">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <!-- Google Fonts: Inter & Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="top-nav">
+    <div class="brand-container">
+      <a href="#" class="brand-logo" title="CC17">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 214 86" fill="#D31317">
+          <path d="M 63.0 24.5 L 49.5 24.5 C 46.5 19.5, 41.5 17.0, 34.5 17.0 C 24.0 17.0, 17.5 24.0, 17.5 34.0 C 17.5 44.0, 24.0 51.0, 34.5 51.0 C 41.5 51.0, 46.5 48.5, 49.5 43.5 L 63.0 43.5 C 59.5 56.5, 48.0 65.0, 34.5 65.0 C 16.5 65.0, 3.0 51.5, 3.0 34.0 C 3.0 16.5, 16.5 3.0, 34.5 3.0 C 48.0 3.0, 59.5 11.5, 63.0 24.5 Z" />
+          <path d="M 129.0 24.5 L 115.5 24.5 C 112.5 19.5, 107.5 17.0, 100.5 17.0 C 90.0 17.0, 83.5 24.0, 83.5 34.0 C 83.5 44.0, 90.0 51.0, 100.5 51.0 C 107.5 51.0, 112.5 48.5, 115.5 43.5 L 129.0 43.5 C 125.5 56.5, 114.0 65.0, 100.5 65.0 C 82.5 65.0, 69.0 51.5, 69.0 34.0 C 69.0 16.5, 82.5 3.0, 100.5 3.0 C 114.0 3.0, 125.5 11.5, 129.0 24.5 Z" />
+          <path d="M 134.0 39.5 L 146.0 29.5 L 146.0 23.0 L 159.5 23.0 L 159.5 65.0 L 146.5 65.0 L 146.5 42.0 L 134.0 42.0 Z" />
+          <path d="M 167.0 23.0 L 209.0 23.0 L 209.0 33.0 L 187.0 83.0 L 173.5 83.0 L 192.5 33.0 L 167.0 33.0 Z" />
+        </svg>
+      </a>
+      <span class="brand-tag">Independencia & Teruel</span>
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#entorno" id="nav-entorno">Entorno Urbano</a></li>
+      <li><a href="#ubicacion" id="nav-ubicacion">Ubicación</a></li>
+      <li><a href="#experiencia" id="nav-estilo-vida">Estilo de Vida</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="https://www.google.com/maps/place/Teruel+305,+Miraflores+15074/@-12.1082295,-77.0354755,17z" target="_blank" rel="noopener noreferrer" class="btn-gmaps">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        <span>Abrir en Google Maps</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MAP VIEWPORT -->
+  <main id="map-viewport"></main>
+
+  <!-- MOBILE BACKDROP -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+
+  <!-- FLOATING SIDEBAR PANEL (Drawer en móviles) -->
+  <aside class="sidebar-panel" id="sidebarPanel">
+    <div class="mobile-drag-handle" id="mobileDragHandle">
+      <span class="drag-bar"></span>
+    </div>
+    <div class="sidebar-header">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+        <span class="project-badge">Miraflores • San Isidro</span>
+        <button class="btn-collapse" id="btnCollapseSidebar" title="Ocultar panel" style="background: none; border: none; cursor: pointer; color: #999; font-size: 16px; padding: 2px;">✕</button>
+      </div>
+      <h1 class="project-title" id="projectTitle">Independencia & Teruel</h1>
+      <p class="project-address" id="projectAddress">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+          <circle cx="12" cy="10" r="3"></circle>
+        </svg>
+        Calle Teruel & Calle Independencia
+      </p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="category-section">
+      <div class="section-label">
+        <span>Categorías de Entorno</span>
+        <span id="activeCountLabel">0 seleccionados</span>
+      </div>
+
+      <div class="category-list" id="categoryList">
+        <button class="category-btn active" data-category="parques">
+          <div class="cat-left">
+            <span class="cat-icon">🌳</span>
+            <span class="cat-text">Parques</span>
+          </div>
+          <span class="cat-count" id="count-parques">0</span>
+        </button>
+
+        <button class="category-btn" data-category="colegios">
+          <div class="cat-left">
+            <span class="cat-icon">🎓</span>
+            <span class="cat-text">Colegios</span>
+          </div>
+          <span class="cat-count" id="count-colegios">0</span>
+        </button>
+
+        <button class="category-btn" data-category="salud">
+          <div class="cat-left">
+            <span class="cat-icon">🏥</span>
+            <span class="cat-text">Salud</span>
+          </div>
+          <span class="cat-count" id="count-salud">0</span>
+        </button>
+
+        <button class="category-btn" data-category="supermercados">
+          <div class="cat-left">
+            <span class="cat-icon">🛒</span>
+            <span class="cat-text">Supermercados</span>
+          </div>
+          <span class="cat-count" id="count-supermercados">0</span>
+        </button>
+
+        <button class="category-btn" data-category="restaurantes">
+          <div class="cat-left">
+            <span class="cat-icon">🍽️</span>
+            <span class="cat-text">Restaurantes</span>
+          </div>
+          <span class="cat-count" id="count-restaurantes">0</span>
+        </button>
+
+        <button class="category-btn" data-category="cultura">
+          <div class="cat-left">
+            <span class="cat-icon">🏛️</span>
+            <span class="cat-text">Cultura & Ocio</span>
+          </div>
+          <span class="cat-count" id="count-cultura">0</span>
+        </button>
+
+        <button class="category-btn" data-category="todos">
+          <div class="cat-left">
+            <span class="cat-icon">✨</span>
+            <span class="cat-text">Ver Todo el Entorno</span>
+          </div>
+          <span class="cat-count" id="count-todos">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Live Search Filter -->
+    <div class="search-container">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input type="text" id="searchInput" class="search-input" placeholder="Buscar lugar o referencia...">
+    </div>
+
+    <!-- Scrollable Place List -->
+    <div class="poi-list-container" id="poiListContainer">
+      <!-- Injected via JavaScript -->
+    </div>
+
+    <!-- Footer Controls -->
+    <div class="sidebar-footer">
+      <label class="switch-label">
+        <input type="checkbox" id="toggleIsochrones" checked>
+        <span>Radio 5 y 10 min a pie</span>
+      </label>
+      <label class="switch-label">
+        <input type="checkbox" id="toggleLabels" checked>
+        <span>Nombres en mapa</span>
+      </label>
+    </div>
+  </aside>
+
+  <!-- Button to reopen sidebar when collapsed -->
+  <button class="toggle-sidebar-btn" id="toggleSidebarBtn" title="Abrir panel">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="9" y1="3" x2="9" y2="21"></line>
+    </svg>
+  </button>
+
+  <!-- FLOATING MAP CONTROLS -->
+  <div class="map-controls-group">
+    <button class="floating-btn" id="btnCenterProject" title="Centrar en el Proyecto">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <circle cx="12" cy="12" r="3"></circle>
+        <line x1="12" y1="2" x2="12" y2="6"></line>
+        <line x1="12" y1="18" x2="12" y2="22"></line>
+        <line x1="2" y1="12" x2="6" y2="12"></line>
+        <line x1="18" y1="12" x2="22" y2="12"></line>
+      </svg>
+    </button>
+    <button class="floating-btn" id="btnZoomIn" title="Acercar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="12" y1="5" x2="12" y2="19"></line>
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </button>
+    <button class="floating-btn" id="btnZoomOut" title="Alejar">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- MAP BASE STYLE CHIP SELECTOR -->
+  <div class="map-style-selector">
+    <button class="style-chip active" data-style="positron">Minimalista</button>
+    <button class="style-chip" data-style="streets">Calles</button>
+    <button class="style-chip" data-style="satellite">Satelital</button>
+  </div>
+
+  <!-- BOTÓN FLOTANTE MÓVIL PARA VER LISTA -->
+  <button class="mobile-drawer-trigger" id="mobileDrawerTrigger">
+    <span class="mdt-icon">📋</span>
+    <span class="mdt-label" id="mdtLabel">Ver 22 lugares</span>
+    <span class="mdt-arrow">▲</span>
+  </button>
+
+  <!-- WALKING TIME LEGEND -->
+  <div class="walking-legend" id="walkingLegend">
+    <span class="walking-legend-title">Caminabilidad peatonal</span>
+    <div class="legend-items">
+      <div class="legend-item">
+        <span class="legend-ring ring-5m"></span>
+        <span>5 min (400m)</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-ring ring-10m"></span>
+        <span>10 min (800m)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Leaflet Library -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- Data -->
+  <script src="poi_data.js"></script>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
