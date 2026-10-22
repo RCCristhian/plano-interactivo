@@ -913,48 +913,42 @@ body {
   background: #333;
 }
 
-/* Mobile Elements */
+/* Mobile Floating Action Button (Círculo rojo con flecha hacia arriba) */
 .mobile-hamburger-btn {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   position: fixed !important;
-  bottom: calc(20px + env(safe-area-inset-bottom, 0px)) !important;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px)) !important;
   right: 18px !important;
-  width: 52px !important;
-  height: 52px !important;
+  width: 54px !important;
+  height: 54px !important;
   border-radius: 50% !important;
-  background: #111111 !important;
+  background: #D31317 !important; /* Rojo corporativo CC17 */
   color: #ffffff !important;
-  border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
-  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45) !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 6px 24px rgba(211, 19, 23, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3) !important;
   z-index: 99999 !important;
   cursor: pointer !important;
   outline: none !important;
   -webkit-tap-highlight-color: transparent !important;
-  transition: transform 0.2s ease, background 0.2s ease !important;
+  transition: transform 0.25s ease, background 0.2s ease, box-shadow 0.25s ease !important;
 }
 
 .mobile-hamburger-btn:active {
   transform: scale(0.92) !important;
+  background: #b70f13 !important;
 }
 
 .mobile-hamburger-btn svg {
-  display: block;
-  stroke: #ffffff;
-}
-
-.mobile-hamburger-btn .close-icon-svg {
-  display: none !important;
-}
-
-/* Cuando el menú móvil está abierto, muestra la X */
-body.drawer-open .mobile-hamburger-btn .ham-icon-svg {
-  display: none !important;
-}
-
-body.drawer-open .mobile-hamburger-btn .close-icon-svg {
   display: block !important;
+  stroke: #ffffff !important;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Cuando el drawer está abierto, la flecha gira 180° hacia abajo indicando "cerrar" */
+body.drawer-open .mobile-hamburger-btn svg {
+  transform: rotate(180deg) !important;
 }
 
 .mobile-drawer-backdrop,

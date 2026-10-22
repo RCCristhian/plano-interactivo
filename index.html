@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
   <!-- Custom Styles with Cache Buster -->
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -214,16 +214,10 @@
     <button class="style-chip" data-style="satellite">Satelital</button>
   </div>
 
-  <!-- BOTÓN FLOTANTE SÁNDWICH (HAMBURGUESA) EN LA ESQUINA -->
+  <!-- BOTÓN FLOTANTE MÓVIL (CÍRCULO ROJO CC17 CON FLECHA HACIA ARRIBA EN BLANCO) -->
   <button class="mobile-hamburger-btn" id="mobileDrawerTrigger" onclick="window.toggleMobileDrawer()" aria-label="Abrir menú de lugares">
-    <svg class="ham-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-    <svg class="close-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-      <line x1="18" y1="6" x2="6" y2="18"></line>
-      <line x1="6" y1="6" x2="18" y2="18"></line>
+    <svg class="arrow-up-svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
     </svg>
   </button>
 
@@ -249,6 +243,6 @@
   <script src="poi_data.js"></script>
 
   <!-- Application Logic with Cache Buster -->
-  <script src="app.js?v=5"></script>
+  <script src="app.js?v=6"></script>
 </body>
 </html>
